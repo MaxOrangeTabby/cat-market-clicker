@@ -28,3 +28,15 @@ function sellAllCats(){
     catAmt =  0;
     catInv.textContent = "Cat Inventory: 0";
 }
+
+function reset(){
+    // set inventory and catMoney to 0
+    // reset variables
+
+    catInv.textContent = "Cat Inventory: 0";
+    catMoney.textContent = "Cat Money: 0";
+
+    catAmt = 0;
+    catProfit = 0;
+    totalMoney = 0;
+}
