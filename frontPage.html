@@ -5,6 +5,7 @@
     </head>
 
     <body>
+        
         <div class = page-top>
             <img class = "logo" src="cat.png">
             <h1 class = "page-title">CAT CLICKER</h1>
@@ -14,15 +15,16 @@
 
         <div class = mid-section>
             <div class = "btn-wrapper"> 
-                <button class =  "btn">Buy A Cat</button>
-                <button class =  "btn">Sell All Cats</button>
-                <button class =  "btn">Reset</button>
+                <button class =  "btn"  onclick = "addCat()">Buy A Cat</button>
+                <button class =  "btn"  onclick = "sellAllCats()">Sell All Cats</button>
+                <button class =  "btn"  onclick = "reset()">Reset</button>
             </div>
     
             <div class = "player-stats">
-                <h2>Cat Inventory: 0</h2>
-                <h2>Cat Money: 0</h2>
+                <h2 id = "cat-inv">Cat Inventory: 0</h2>
+                <h2 id = "cat-money">Cat Money: 0</h2>
             </div>
         </div>
+        <script src = marketFunctions.js></script>
     </body>
 </HTML>
