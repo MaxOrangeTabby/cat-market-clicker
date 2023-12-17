@@ -84,6 +84,9 @@ function reset(){
     catAmt = 0;
     catProfit = 0;
     totalMoney = 0;
+
+    // clear transaction history
+    transactionList.textContent = "";
 }
 
 function startGame(){
