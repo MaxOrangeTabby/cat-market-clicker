@@ -88,6 +88,13 @@ h1{
     font-size: 40px;
 }
 
+#transactions-list{
+    list-style: none;
+    color: white;
+    font-weight: bold;
+
+    font-size: 20px;
+}
 #transactions-txt{
     color: white;
 }
