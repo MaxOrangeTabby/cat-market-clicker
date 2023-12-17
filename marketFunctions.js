@@ -8,13 +8,46 @@ gameStarted = false
 const catInv = document.getElementById("cat-inv");
 const catMoney = document.getElementById("cat-money");
 
-let catAmt = 0; // amount of cats currently head
-let catProfit = 0; // amount of profit from cats sold
+
+let catList = [] // an array of all the cats bought
 let totalMoney = 0;
 
-function addCat(){
-    catAmt+=1;
-    catInv.textContent = "Cat Inventory: " + catAmt;
+function buyCat(catType){ // figure out way to optimize when larger amount of cat options
+    switch(catType){ // check for sufficient funds then deduct as needed and increment catAmt
+        case "Banana":
+            if(Money  < 5000){
+                alert("You don't have the funds!!")
+            }
+            else{
+                totalMoney -= 5000;
+                catMoney.textContent = "Cat Money: " + totalMoney;
+            }
+
+        case "Calico":
+            if(Money  < 350){
+                alert("You don't have the funds!!")
+            }
+            else{
+                totalMoney -= 350;
+                catMoney.textContent = "Cat Money: " + totalMoney;
+            }
+        case "Eepy":
+            if(Money  < 2500){
+                alert("You don't have the funds!!")
+            }
+            else{
+                totalMoney -= 2500;
+                catMoney.textContent = "Cat Money: " + totalMoney;
+            }
+        case "Orange":
+            if(Money  < 35){
+                alert("You don't have the funds!!")
+            }
+            else{
+                totalMoney -= 35;
+                catMoney.textContent = "Cat Money: " + totalMoney;
+            }
+    }
 }
 
 function sellAllCats(){
