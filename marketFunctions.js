@@ -3,8 +3,10 @@
 // Sell all cats
 // Reset cat inventory and money
 
-let catInv = document.getElementById("cat-inv");
-let catMoney = document.getElementById("cat-money");
+gameStarted = false
+
+const catInv = document.getElementById("cat-inv");
+const catMoney = document.getElementById("cat-money");
 
 let catAmt = 0; // amount of cats currently head
 let catProfit = 0; // amount of profit from cats sold
@@ -36,7 +38,22 @@ function reset(){
     catInv.textContent = "Cat Inventory: 0";
     catMoney.textContent = "Cat Money: 0";
 
+    gameStarted = false;
     catAmt = 0;
     catProfit = 0;
     totalMoney = 0;
+}
+
+function startGame(){
+    // Give the player a randomized amount of money
+    // 1 - 9999
+
+    if(!gameStarted){
+        totalMoney = (Math.floor(Math.random() * 10000 ) + 1);
+        catMoney.textContent = "Cat Money: " + totalMoney;
+        gameStarted = true;
+    }
+    else{
+        alert("You have to reset before starting a new game!")
+    }
 }

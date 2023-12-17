@@ -11,20 +11,30 @@
             <h1 class = "page-title">CAT CLICKER</h1>
         </div>
         <h3 class = "instructions"> How to play: 
-            Buy as many cats as you want, and sell them :D. Each cat is worth $5</h3>
+            You start with a random amount of money. Buy which ever kind of cats you want, or sell them</h3>
 
         <div class = mid-section>
-            <div class = "btn-wrapper"> 
-                <button class =  "btn"  onclick = "addCat()">Buy A Cat</button>
+            <div class = "cat-options">
+                <h2 class = "cat-option-txt">CAT OPTIONS</h2>
+                <button class =  "btn"  onclick = "addCat()">Banana Cat - $5000</button>
+                <button class =  "btn"  onclick = "addCat()">Calico Cat - $350</button>
+                <button class =  "btn"  onclick = "addCat()">Eepy Cat - $2500</button>
+                <button class =  "btn"  onclick = "addCat()">Orange Cat - $35</button>
+            </div>
+
+            <div class = "btn-wrapper">
+                <button class = "btn" onclick = "startGame()">START GAME</button> 
                 <button class =  "btn"  onclick = "sellAllCats()">Sell All Cats</button>
                 <button class =  "btn"  onclick = "reset()">Reset</button>
             </div>
     
             <div class = "player-stats">
+                <h2 id = "cat-money">Cat Money: $0</h2>
                 <h2 id = "cat-inv">Cat Inventory: 0</h2>
-                <h2 id = "cat-money">Cat Money: 0</h2>
             </div>
         </div>
+
+        <ol id = "transactions-list" ></ol>
         <script src = marketFunctions.js></script>
     </body>
 </HTML>
