@@ -23,7 +23,7 @@ function buyCat(catType){ // figure out way to optimize when larger amount of ca
                 totalMoney -= 5000;
                 catMoney.textContent = "Cat Money: $" + totalMoney;
                 catList.push("Banana");
-                recordTransaction(5000);
+                recordTransaction("Banana",5000);
             }
             break;
         case "Calico":
@@ -34,7 +34,7 @@ function buyCat(catType){ // figure out way to optimize when larger amount of ca
                 totalMoney -= 350;
                 catMoney.textContent = "Cat Money: $" + totalMoney;
                 catList.push("Calico");
-                recordTransaction(350);
+                recordTransaction("Calico",350);
             }
             break;
         case "Eepy":
@@ -45,7 +45,7 @@ function buyCat(catType){ // figure out way to optimize when larger amount of ca
                 totalMoney -= 2500;
                 catMoney.textContent = "Cat Money: $" + totalMoney;
                 catList.push("Eepy");
-                recordTransaction(2500);
+                recordTransaction("Eeepy",2500);
             }
             break;
         case "Orange":
@@ -56,7 +56,7 @@ function buyCat(catType){ // figure out way to optimize when larger amount of ca
                 totalMoney -= 35;
                 catMoney.textContent = "Cat Money: $" + totalMoney;
                 catList.push("Orange");
-                recordTransaction(35);
+                recordTransaction("Orange",35);
             }
             break;
         case "Bobtail":
@@ -67,7 +67,7 @@ function buyCat(catType){ // figure out way to optimize when larger amount of ca
                 totalMoney -= 777;
                 catMoney.textContent = "Cat Money: " + totalMoney;
                 catList.push("Bobtail");
-                recordTransaction(777);
+                recordTransaction("Bobtail",777);
             }
             break;
     }
@@ -100,11 +100,9 @@ function startGame(){
     }
 }
 
-function recordTransaction(cost){ 
-    console.log("i")// Go through array and add them to ordered list
-    let transactionAll = ""
-    for(let i = 0; i < catList.length; i++){
-        transactionAll += `<li>${catList[i]} -${cost} </li>`
-    }
-    transactionList.innerHTML = transactionAll;
+function recordTransaction(catType,cost){ 
+   // Go through array and add them to ordered list
+ 
+    
+    transactionList.innerHTML += `<li>${catType} -${cost} </li>`;
 }
