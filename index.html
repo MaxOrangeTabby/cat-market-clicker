@@ -15,7 +15,6 @@
 
         <div class = mid-section>
             <div class = "cat-options">
-                <h2 class = "cat-option-txt">CAT OPTIONS</h2>
                 <button class =  "btn"  onclick = "buyCat('Banana')">Banana Cat - $5000</button>
                 <button class =  "btn"  onclick = "buyCat('Calico')">Calico Cat - $350</button>
                 <button class =  "btn"  onclick = "buyCat('Eepy')">Eepy Cat - $2500</button>
@@ -25,7 +24,6 @@
 
             <div class = "btn-wrapper">
                 <button class = "btn" onclick = "startGame()">START GAME</button> 
-                <button class =  "btn"  onclick = "sellAllCats()">Sell All Cats</button>
                 <button class =  "btn"  onclick = "reset()">Reset</button>
             </div>
     
@@ -33,9 +31,15 @@
                 <h2 id = "cat-money">Cat Money: $0</h2>
                 <h2 id = "cat-inv">Cat Inventory: 0</h2>
             </div>
-        </div>
 
-        <ol id = "transactions-list" ></ol>
+            <div class = "transactions">
+                <h2 id = transactions-txt>TRANSACTIONS</h2>
+                <ul id = "transactions-list" ></ul>
+            </div>
+
+
+        </div>
+        
         <script src = marketFunctions.js></script>
     </body>
 </HTML>
