@@ -1,19 +1,14 @@
 
+html {
+    min-height:100%;
+}
 body{
-    background: #1d1B26;
-    background-size: auto;
+    background-image: linear-gradient(to bottom right, rgb(93, 0, 255), rgb(94, 233, 198));
+    background-repeat: no-repeat;
 }
 
-.page-top{
-    display: flex;
-    
-}
-
-h1{
-    
-    background: linear-gradient(to right, #0420c1, #276ee2, #da1fa2, #db49b7);
-    -webkit-text-fill-color: transparent; 
-    -webkit-background-clip: text; 
+h1{ 
+    color:rgb(255, 255, 255);
 
     font-family:'Trebuchet MS';
     font-weight: 950;
@@ -26,8 +21,12 @@ h1{
     margin-left: auto;
     margin-right: auto;
 
-    border: 4px solid white;
+    border: 4px solid #cdcdce;
     border-radius: 10px;
+}
+
+.page-top{
+    display: flex;
 }
 
 .logo{
@@ -37,10 +36,8 @@ h1{
     margin-top: 40px;
     margin-left: 40px;
 
-    border: 4px solid white;
+    border: 4px solid #cdcdce;
     padding: 8px;
-
-
 }
 
 .instructions{
@@ -54,6 +51,10 @@ h1{
 .btn{
     display:block;
 
+    background-color: transparent;
+
+    color: rgb(255, 255, 255);
+
     font-size: 20px;
     font-weight:bold;
 
@@ -62,28 +63,32 @@ h1{
     margin-top: 20px;
     margin-bottom: 20px;
 
-    border: 4px solid salmon;
-}
-
-.btn-wrapper{
-    margin-left: 50px;
-    
-    
+    border: 4px solid #cdcdce;
 }
 
 .player-stats{
     color: white;
-    
 }
 
 .mid-section{
     display: flex;
     justify-content: space-evenly;
+
+    border: 4px solid white;
+    border-radius: 10px;
+
+    padding: 40px 50px
+
+
 }
 
-.cat-option-txt{
+#cat-option-txt{
     color: white;
     text-align: center;
     font-size: 40px;
+}
+
+#transactions-txt{
+    color: white;
 }
 
