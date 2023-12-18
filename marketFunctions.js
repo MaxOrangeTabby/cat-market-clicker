@@ -3,15 +3,48 @@
 // Sell all cats
 // Reset cat inventory and money
 
-gameStarted = false
+
+
+let gameStarted = false;
 
 const catInv = document.getElementById("cat-inv");
 const catMoney = document.getElementById("cat-money");
 const transactionList = document.getElementById("transactions-list");
 
-
 let catList = [] // an array of all the cats bought
+let catAmt = 0;
 let totalMoney = 0;
+
+
+// local storage
+let localStorageCatAmt = localStorage.getItem("catAmt");
+let localStorageTotalMoney = localStorage.getItem("totalMoney");
+let localStorageCatList = JSON.parse(localStorage.getItem("catList"))
+
+// render out data from local storage if there is any
+if(localStorageCatAmt){
+    catInv.textContent = "Cat Inventory: " + localStorageCatAmt;
+    catAmt = localStorageCatAmt
+}
+
+if(localStorageTotalMoney){
+    totalMoney = localStorageTotalMoney;
+    catMoney.textContent = "Cat Money: " + totalMoney;
+}
+
+if(localStorageCatList){
+   catList = localStorageCatList;
+}
+
+
+if(catAmt === 0){
+    gameStarted = false;
+}
+else{
+    gameStarted = true;
+}
+
+
 
 function buyCat(catType){ // figure out way to optimize when larger amount of cat options
     switch(catType){ // check for sufficient funds then deduct as needed and push into catList
@@ -21,9 +54,18 @@ function buyCat(catType){ // figure out way to optimize when larger amount of ca
             }
             else{
                 totalMoney -= 5000;
-                catMoney.textContent = "Cat Money: $" + totalMoney;
                 catList.push("Banana");
+                catAmt+=1;
+
+                catMoney.textContent = "Cat Money: $" + totalMoney;
+                catInv.textContent = "Cat Inventory: " + catAmt;
+
+                localStorage.setItem("catAmt",catAmt);
+                localStorage.setItem("totalMoney",totalMoney);
+                localStorage.setItem("catList", JSON.stringify(catList));
+
                 recordTransaction("Banana",5000);
+                
             }
             break;
         case "Calico":
@@ -32,8 +74,16 @@ function buyCat(catType){ // figure out way to optimize when larger amount of ca
             }
             else{
                 totalMoney -= 350;
-                catMoney.textContent = "Cat Money: $" + totalMoney;
                 catList.push("Calico");
+                catAmt+=1;
+
+                catMoney.textContent = "Cat Money: $" + totalMoney;
+                catInv.textContent = "Cat Inventory: " + catAmt;
+
+                localStorage.setItem("catAmt",catAmt);
+                localStorage.setItem("totalMoney",totalMoney);
+                localStorage.setItem("catList", JSON.stringify(catList));
+
                 recordTransaction("Calico",350);
             }
             break;
@@ -43,8 +93,16 @@ function buyCat(catType){ // figure out way to optimize when larger amount of ca
             }
             else{
                 totalMoney -= 2500;
-                catMoney.textContent = "Cat Money: $" + totalMoney;
                 catList.push("Eepy");
+                catAmt+=1;
+
+                catMoney.textContent = "Cat Money: $" + totalMoney;
+                catInv.textContent = "Cat Inventory: " + catAmt;
+
+                localStorage.setItem("catAmt",catAmt);
+                localStorage.setItem("totalMoney",totalMoney);
+                localStorage.setItem("catList", JSON.stringify(catList));
+
                 recordTransaction("Eeepy",2500);
             }
             break;
@@ -54,8 +112,15 @@ function buyCat(catType){ // figure out way to optimize when larger amount of ca
             }
             else{
                 totalMoney -= 35;
-                catMoney.textContent = "Cat Money: $" + totalMoney;
                 catList.push("Orange");
+                catAmt+=1;
+
+                catMoney.textContent = "Cat Money: $" + totalMoney;
+                catInv.textContent = "Cat Inventory: " + catAmt;
+
+                localStorage.setItem("catAmt",catAmt);
+                localStorage.setItem("totalMoney",totalMoney);
+                localStorage.setItem("catList", JSON.stringify(catList));
                 recordTransaction("Orange",35);
             }
             break;
@@ -65,8 +130,15 @@ function buyCat(catType){ // figure out way to optimize when larger amount of ca
             }
             else{
                 totalMoney -= 777;
-                catMoney.textContent = "Cat Money: " + totalMoney;
                 catList.push("Bobtail");
+                catAmt+=1;
+
+                catMoney.textContent = "Cat Money: $" + totalMoney;
+                catInv.textContent = "Cat Inventory: " + catAmt;
+
+                localStorage.setItem("catAmt",catAmt);
+                localStorage.setItem("totalMoney",totalMoney);
+                localStorage.setItem("catList", JSON.stringify(catList));
                 recordTransaction("Bobtail",777);
             }
             break;
@@ -85,8 +157,15 @@ function reset(){
     catProfit = 0;
     totalMoney = 0;
 
+
+
     // clear transaction history
     transactionList.textContent = "";
+    catList = [];
+
+    localStorage.setItem("catAmt",catAmt);
+    localStorage.setItem("totalMoney",totalMoney);
+    localStorage.setItem("catList", JSON.stringify(catList));
 }
 
 function startGame(){
@@ -97,6 +176,7 @@ function startGame(){
         totalMoney = (Math.floor(Math.random() * 10000 ) + 1);
         catMoney.textContent = "Cat Money: $" + totalMoney;
         gameStarted = true;
+        localStorage.setItem("totalMoney",totalMoney);
     }
     else{
         alert("You have to reset before starting a new game!")
@@ -106,6 +186,14 @@ function startGame(){
 function recordTransaction(catType,cost){ 
    // Go through array and add them to ordered list
  
-    
     transactionList.innerHTML += `<li>${catType} -${cost} </li>`;
 }
+
+function viewCollection(){ // 
+    localStorage.setItem("catList",JSON.stringify(catList));      
+    window.location.href = "catCollection.html";
+}
+
+
+
+
