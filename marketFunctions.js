@@ -12,6 +12,7 @@ const catMoney = document.getElementById("cat-money");
 const transactionList = document.getElementById("transactions-list");
 
 let catList = [] // an array of all the cats bought
+let transactionListArr = [] // parallel array of catList for the assoc. cost of each cat
 let catAmt = 0;
 let totalMoney = 0;
 
@@ -20,22 +21,31 @@ let totalMoney = 0;
 let localStorageCatAmt = localStorage.getItem("catAmt");
 let localStorageTotalMoney = localStorage.getItem("totalMoney");
 let localStorageCatList = JSON.parse(localStorage.getItem("catList"))
+let localStorageTransactionArr = JSON.parse(localStorage.getItem("transactionListArr"));
 
 // render out data from local storage if there is any
-if(localStorageCatAmt){
+if(localStorageCatAmt){ // 
     catInv.textContent = "Cat Inventory: " + localStorageCatAmt;
     catAmt = localStorageCatAmt
+
+    //change catAmt back into a numerical value from string
+    catAmt = catAmt * 1;
 }
 
 if(localStorageTotalMoney){
     totalMoney = localStorageTotalMoney;
-    catMoney.textContent = "Cat Money: " + totalMoney;
+    catMoney.textContent = "Cat Money: $" + totalMoney;
 }
 
 if(localStorageCatList){
    catList = localStorageCatList;
 }
 
+if(localStorageTransactionArr){
+    for(let i = 0; i < localStorageTransactionArr.length;i++){
+        transactionList.innerHTML += `<li>${catList[i]} -${localStorageTransactionArr[i]}</li>`;
+    }
+}
 
 if(catAmt === 0){
     gameStarted = false;
@@ -184,13 +194,14 @@ function startGame(){
 }
 
 function recordTransaction(catType,cost){ 
-   // Go through array and add them to ordered list
- 
+
+    transactionListArr.push(cost);
+    localStorage.setItem("transactionListArr",JSON.stringify(transactionListArr));
     transactionList.innerHTML += `<li>${catType} -${cost} </li>`;
 }
 
 function viewCollection(){ // 
-    localStorage.setItem("catList",JSON.stringify(catList));      
+    localStorage.setItem("catList",JSON.stringify(catList));     
     window.location.href = "catCollection.html";
 }
 
