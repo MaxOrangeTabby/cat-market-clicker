@@ -42,9 +42,8 @@ if(localStorageCatList){
 }
 
 if(localStorageTransactionArr){
-    for(let i = 0; i < localStorageTransactionArr.lengthfor;i++){
-        transactionLi
-        st.innerHTML += `<li>${catList[i]} -${localStorageTransactionArr[i]}</li>`;
+    for(let i = 0; i < localStorageTransactionArr.length;i++){
+        transactionList .innerHTML += `<li>${catList[i]} -${localStorageTransactionArr[i]}</li>`;
     }
 }
 
