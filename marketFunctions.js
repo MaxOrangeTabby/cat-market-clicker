@@ -42,8 +42,9 @@ if(localStorageCatList){
 }
 
 if(localStorageTransactionArr){
-    for(let i = 0; i < localStorageTransactionArr.length;i++){
-        transactionList.innerHTML += `<li>${catList[i]} -${localStorageTransactionArr[i]}</li>`;
+    for(let i = 0; i < localStorageTransactionArr.lengthfor;i++){
+        transactionLi
+        st.innerHTML += `<li>${catList[i]} -${localStorageTransactionArr[i]}</li>`;
     }
 }
 
@@ -172,7 +173,9 @@ function reset(){
     // clear transaction history
     transactionList.textContent = "";
     catList = [];
+    transactionListArr = [];
 
+    localStorage.setItem("transactionListArr", transactionListArr);
     localStorage.setItem("catAmt",catAmt);
     localStorage.setItem("totalMoney",totalMoney);
     localStorage.setItem("catList", JSON.stringify(catList));
